@@ -970,7 +970,7 @@ function startCRT(gl) {
     else if (r.action.type === "link") window.open(r.action.href, "_blank", "noopener");
     else if (r.action.type === "proj") { projectIndex = r.action.index; renderPage(current); }
     else if (r.action.type === "projDelta") {
-      const n = PAGES.WORK.projects.length;
+      const n = PAGES.PROJECTS.projects.length;
       projectIndex = (projectIndex + r.action.delta + n) % n;
       renderPage(current);
     }
@@ -993,8 +993,8 @@ function startCRT(gl) {
     const i = "1234".indexOf(e.key);
     if (i >= 0) { go(NAV[i]); return; }
     if (e.key === "Escape") { go("HOME"); return; }
-    if (current === "WORK" && mode === "idle" && PAGES.WORK.projects) {
-      const n = PAGES.WORK.projects.length;
+    if (current === "PROJECTS" && mode === "idle" && PAGES.PROJECTS.projects) {
+      const n = PAGES.PROJECTS.projects.length;
       if (e.key === "ArrowRight" || e.key === "ArrowDown") {
         projectIndex = (projectIndex + 1) % n;
         renderPage(current);
