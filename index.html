@@ -3,8 +3,26 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<title>Adil Abdildenov — Portfolio</title>
-<meta name="description" content="Adil Abdildenov — Creative Developer and Lead Programmer." />
+
+<!-- Primary Meta Tags -->
+<title>Adil Abdildenov — Creative Developer & Lead Programmer</title>
+<meta name="title" content="Adil Abdildenov — Creative Developer & Lead Programmer" />
+<meta name="description" content="Portfolio of Adil Abdildenov — Creative developer, lead programmer for FTC Team xCeption. High-school developer specializing in C++, graphics rendering, and ML companion systems." />
+
+<!-- Open Graph / Facebook / Telegram -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://dafypig228.github.io/Porfolio/" />
+<meta property="og:title" content="Adil Abdildenov — Creative Developer & Lead Programmer" />
+<meta property="og:description" content="Portfolio of Adil Abdildenov — Creative developer, lead programmer for FTC Team xCeption. High-school developer specializing in C++, graphics rendering, and ML companion systems." />
+<meta property="og:image" content="https://dafypig228.github.io/Porfolio/Preview.png" />
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:url" content="https://dafypig228.github.io/Porfolio/" />
+<meta property="twitter:title" content="Adil Abdildenov — Creative Developer & Lead Programmer" />
+<meta property="twitter:description" content="Portfolio of Adil Abdildenov — Creative developer, lead programmer for FTC Team xCeption. High-school developer specializing in C++, graphics rendering, and ML companion systems." />
+<meta property="twitter:image" content="https://dafypig228.github.io/Porfolio/Preview.png" />
+
 <style>
   :root { color-scheme: light dark; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -18,11 +36,11 @@
     transition: opacity .35s ease;
     background: #000;
   }
-  #gl.live { opacity: 1; pointer-events: auto; }
+  body.crt-on #gl.live { opacity: 1; pointer-events: auto; }
   body.crt-on { overflow: hidden; }
   
-  /* ---- Clean ATS Resume Fallback (Like the photos) ---- */
-  body:not(.crt-on) { overflow: auto; background: #f4f4f4; }
+  /* ---- Clean ATS Resume Fallback ---- */
+  body:not(.crt-on) { overflow: auto; background: #000000; }
   
   .fb {
     position: relative; z-index: 1;
@@ -55,9 +73,60 @@
   
   .fb .skills-grid { display: grid; grid-template-columns: 110px 1fr; gap: 8px 10px; font-size: 10.5pt; }
   .fb .skill-cat { font-weight: bold; color: #000; }
+
+  /* ---- View Toggle Button Styles ---- */
+  #view-toggle {
+    display: none; /* Hidden by default; only shown if WebGL is supported */
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 20; /* Sits comfortably above the WebGL canvas (z-index 10) */
+    padding: 8px 14px;
+    font-family: ui-monospace, "Cascadia Mono", monospace;
+    font-size: 11px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    cursor: pointer;
+    border: 1px solid currentColor;
+    border-radius: 4px;
+    background: transparent;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  /* Styling when WebGL/CRT Mode is ACTIVE */
+  body.crt-on #view-toggle {
+    color: #a82e0a; /* CONFIG.accent matching */
+    border-color: #8f8975; /* CONFIG.rule matching */
+  }
+  body.crt-on #view-toggle:hover {
+    background: #a82e0a;
+    color: #d7d3c4; /* CONFIG.paper matching */
+    border-color: #a82e0a;
+  }
+  
+  /* Styling when Standard Document Mode is ACTIVE */
+  body:not(.crt-on) #view-toggle {
+    color: #333;
+    border-color: #ccc;
+    background: #fff;
+  }
+  body:not(.crt-on) #view-toggle:hover {
+    background: #111;
+    color: #fff;
+    border-color: #111;
+  }
+
+  /* Reveal toggle button if the browser supports WebGL */
+  body.has-gl #view-toggle {
+    display: block;
+  }
 </style>
 </head>
 <body>
+
+<button id="view-toggle" aria-label="Toggle retro screen mode">Standard View</button>
+
 <main class="fb">
   <header>
     <h1>ADIL ABDILDENOV</h1>
@@ -67,7 +136,7 @@
       <span><a href="mailto:adil.abdilden2010@gmail.com">adil.abdilden2010@gmail.com</a></span> |
       <span><a href="https://t.me/eexactly_f" target="_blank">Telegram: @eexactly_f</a></span> |
       <span><a href="https://github.com/Dafypig228" target="_blank">GitHub</a></span> |
-      <span><a href="https://www.instagram.com/eexactly_f/" target="_blank">Instagram</a></span>
+      <span><a href="https://www.instagram.com/eexactly_f/" target="_blank">Instagram</a></span> |
       <span><a href="https://t.me/Forthosv" target="_blank">Telegram</a></span>
     </div>
   </header>
@@ -75,11 +144,11 @@
   <div class="section">
     <div class="section-title">Education</div>
     <div class="item-header">
-      <div class="item-title">High School (A-Level Curriculum)</div>
+      <div class="item-title">High School 10 Grade</div>
       <div class="item-date">Expected 2027</div>
     </div>
     <div class="item-subtitle">
-      <div>Computer Science & STEM Track</div>
+      <div>Robotics & Cool Stuff</div>
       <div class="item-location">Astana, Kazakhstan</div>
     </div>
     <ul>
@@ -93,9 +162,8 @@
       <div class="skill-cat">Languages:</div>
       <div>C++, C#, Java, Python, SQL</div>
       <div class="skill-cat">Technologies:</div>
-      <div>Node.js, TensorFlow, PyTorch, OpenCV, Unity, Unreal, .NET, PedroPathing, RoadRunner</div>
-      <div class="skill-cat">Tools:</div>
-      <div>Git, Linux, Fusion 360, Google Cloud Platform, Firebase, Blender, WebStorm</div>
+      <div>Node.js, Bash, TensorFlow, Pandas, PyTorch,
+        GIT, Linux, Fusion 360, Blender, Claude Code</div>
     </div>
   </div>
 
@@ -107,7 +175,7 @@
       <div class="item-date">2025 – 2026</div>
     </div>
     <div class="item-subtitle">
-      <div>Lead Programmer</div>
+      <div>Lead Programmer - CADer - Captain</div>
       <div class="item-location">Astana / Houston, TX</div>
     </div>
     <ul>
@@ -125,12 +193,11 @@
       <div>Lead Developer</div>
     </div>
     <ul>
-      <li>Prioritized the development of a personalized digital companion and friend over standard background automation tools.</li>
-      <li>Engineered a local memory architecture integrating ONNX vector embeddings and entity pivots for context retention.</li>
-      <li>Built an autonomous monologue loop fueled by system telemetry and computer vision screen monitoring.</li>
-      <li>GitHub repository: <a href="https://github.com/Dafypig228/Fflux" target="_blank">DAVOS GitHub</a></li>
+      <li>6-layer hybrid memory via local ONNX and GraphRAG</li>
+      <li>Autonomous monologue loop driven by passive sensors</li>
+      <li>30-step JarvisCore engine for UI automation and self-coding</li>
+      <li>More info: <a href="https://github.com/Dafypig228/Fflux" target="_blank">DAVOS GitHub</a></li>
     </ul>
-
     <div class="item-header">
       <div class="item-title">B.R.E.D</div>
       <div class="item-date">2026</div>
@@ -166,7 +233,6 @@ const CONFIG = {
   reliefScanDepth:  0.68, 
   reliefGain:       1.0,  
   reliefDesat:      0.0,  
-  
   
   debugRelief:      false, 
   
@@ -264,12 +330,16 @@ let gl = null;
 try { if (!reduced) gl = gl_canvas.getContext("webgl", { antialias: false, alpha: false }); }
 catch (e) { gl = null; }
 
-if (!gl) document.body.classList.remove("crt-on");
-else startCRT(gl);
+if (!gl) {
+  document.body.classList.remove("crt-on");
+  document.body.classList.remove("has-gl");
+} else {
+  document.body.classList.add("crt-on");
+  document.body.classList.add("has-gl");
+  startCRT(gl);
+}
 
 function startCRT(gl) {
-  document.body.classList.add("crt-on");
-
   let W = 0, H = 0, dpr = 1;
   const page = document.createElement("canvas");
   const pctx = page.getContext("2d");
@@ -855,26 +925,26 @@ function startCRT(gl) {
           pctx.fillStyle = CONFIG.accent;
           
           // PREV
-        pctx.textAlign = "left";
-        const prevTxt = "‹  PREV";
-        pctx.fillText(prevTxt, lx, yy);
-        const prevW = pctx.measureText(prevTxt).width;
-        hot.push({
-          x: (lx - 24*k) / W, y: (yy - 48*k) / H,
-          w: (prevW + 48*k) / W, h: 96*k / H, 
-          action: { type: "projDelta", delta: -1 },
-        });
+          pctx.textAlign = "left";
+          const prevTxt = "‹  PREV";
+          pctx.fillText(prevTxt, lx, yy);
+          const prevW = pctx.measureText(prevTxt).width;
+          hot.push({
+            x: (lx - 24*k) / W, y: (yy - 48*k) / H,
+            w: (prevW + 48*k) / W, h: 96*k / H, 
+            action: { type: "projDelta", delta: -1 },
+          });
 
-        // NEXT
-        pctx.textAlign = "right";
-        const nextTxt = "NEXT  ›";
-        pctx.fillText(nextTxt, lx + innerW, yy);
-        const nextW = pctx.measureText(nextTxt).width;
-        hot.push({
-          x: (lx + innerW - nextW - 24*k) / W, y: (yy - 48*k) / H,
-          w: (nextW + 48*k) / W, h: 96*k / H,
-          action: { type: "projDelta", delta: +1 },
-        });
+          // NEXT
+          pctx.textAlign = "right";
+          const nextTxt = "NEXT  ›";
+          pctx.fillText(nextTxt, lx + innerW, yy);
+          const nextW = pctx.measureText(nextTxt).width;
+          hot.push({
+            x: (lx + innerW - nextW - 24*k) / W, y: (yy - 48*k) / H,
+            w: (nextW + 48*k) / W, h: 96*k / H,
+            action: { type: "projDelta", delta: +1 },
+          });
         }
       }
       y += h;
@@ -966,7 +1036,7 @@ function startCRT(gl) {
   }
 
   gl_canvas.addEventListener("click", e => {
-    if (mode !== "idle") return;
+    if (mode !== "idle" || !document.body.classList.contains("crt-on")) return;
     const r = hitAt(e.clientX, e.clientY);
     if (!r) return;
     if (r.action.type === "nav") go(r.action.page);
@@ -980,6 +1050,7 @@ function startCRT(gl) {
   });
   
   gl_canvas.addEventListener("mousemove", e => {
+    if (!document.body.classList.contains("crt-on")) return;
     gl_canvas.style.cursor = (mode === "idle" && hitAt(e.clientX, e.clientY)) ? "pointer" : "default";
     mouseX = e.clientX;
     mouseY = e.clientY;
@@ -989,10 +1060,11 @@ function startCRT(gl) {
   gl_canvas.addEventListener("mouseleave", () => {
     mouseInside = false;
     mouseX = mouseY = -9999;
-    if (asciiActive && mode === "idle") renderPage(current);
+    if (asciiActive && mode === "idle" && document.body.classList.contains("crt-on")) renderPage(current);
   });
   
   addEventListener("keydown", e => {
+    if (!document.body.classList.contains("crt-on")) return;
     const i = "1234".indexOf(e.key);
     if (i >= 0) { go(NAV[i]); return; }
     if (e.key === "Escape") { go("HOME"); return; }
@@ -1035,7 +1107,7 @@ function startCRT(gl) {
     let noise = 0, power = 1;
     const el = now - modeStart;
 
-    if (mode === "idle" && current === "HOME") {
+    if (mode === "idle" && current === "HOME" && document.body.classList.contains("crt-on")) {
       const interval = 1000 / CONFIG.asciiScrambleHz;
       if (now - lastAsciiRender > interval) {
         lastAsciiRender = now;
@@ -1065,6 +1137,18 @@ function startCRT(gl) {
     requestAnimationFrame(loop);
   }
   requestAnimationFrame(loop);
+
+  // View Toggle click logic
+  const toggleBtn = document.getElementById("view-toggle");
+  if (toggleBtn) {
+    toggleBtn.addEventListener("click", () => {
+      const isRetro = document.body.classList.toggle("crt-on");
+      toggleBtn.textContent = isRetro ? "Standard View" : "Retro View";
+      if (isRetro) {
+        resize(); // Redraw canvas and metrics to prevent display bugs on toggle-back
+      }
+    });
+  }
 }
 </script>
 </body>
